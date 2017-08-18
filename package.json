@@ -1,0 +1,29 @@
+{
+  "name": "jm-wallet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/index",
+  "scripts": {
+    "start": "node node_modules/jm-server/bin/jm-server",
+    "cluster": "node node_modules/jm-server/bin/jm-server --cluster",
+    "test": "node node_modules/babel-cli/bin/babel-node ./node_modules/mocha/bin/_mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jm-root/jm-wallet.git"
+  },
+  "keywords": [
+    "javascript",
+    "jm-wallet",
+    "wallet"
+  ],
+  "author": "Jeff YU",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jm-root/jm-wallet/issues"
+  },
+  "homepage": "https://github.com/jm-root/jm-wallet",
+  "dependencies": {
+    "jm-server": "^1.0.5"
+  }
+}
