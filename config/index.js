@@ -6,7 +6,7 @@ var config = {
     gateway: 'http://api.mx.jamma.cn',
     ctCode: 'tb',
     modules: {
-      'wallet': {
+      '': {
         module: process.cwd() + '/lib'
       }
     }
@@ -17,7 +17,7 @@ var config = {
     gateway: 'http://gateway.app',
     ctCode: 'tb',
     modules: {
-      'wallet': {
+      '': {
         module: process.cwd() + '/lib'
       }
     }
