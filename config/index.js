@@ -1,10 +1,10 @@
 require('log4js').configure(require('path').join(__dirname, 'log4js.json'))
-var config = {
+let config = {
   development: {
     port: 3000,
     lng: 'zh_CN',
-    gateway: 'http://api.mx.jamma.cn',
-    ctCode: 'tb',
+    gateway: 'http://gateway.app',
+    ctCode: 'cny',
     modules: {
       '': {
         module: process.cwd() + '/lib'
@@ -12,10 +12,10 @@ var config = {
     }
   },
   production: {
-    port: 3000,
+    port: 80,
     lng: 'zh_CN',
     gateway: 'http://gateway.app',
-    ctCode: 'tb',
+    ctCode: 'cny',
     modules: {
       '': {
         module: process.cwd() + '/lib'
@@ -24,7 +24,7 @@ var config = {
   }
 }
 
-var env = process.env.NODE_ENV || 'development'
+let env = process.env.NODE_ENV || 'development'
 config = config[env] || config['development']
 config.env = env
 
