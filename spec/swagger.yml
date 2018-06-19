@@ -1,0 +1,168 @@
+openapi: 3.0.0
+# Added by API Auto Mocking Plugin
+servers:
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/jm-root/jm-wallet/1.0.0
+info:
+  version: "1.0.0"
+  title: jm-wallet-api
+  description: 钱包API
+paths:
+  '/{id}':
+    get:
+      description: 查询指定用户余额
+      parameters:
+        - name: id
+          in: path
+          description: 用户id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 查询结果
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Balance'
+  '/{id}/records':
+    get:
+      description: 查询指定用户交易流水
+      parameters:
+        - name: id
+          in: path
+          description: 用户id
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: 第几页
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+        - name: rows
+          in: query
+          description: 行数
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+      responses:
+        '200':
+          description: 查询结果
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Records'
+  '/{id}/transfer':
+    post:
+      description: 转账
+      parameters:
+        - name: id
+          in: path
+          description: 用户id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferInfo'
+      responses:
+        '200':
+          description: 转账结果
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferResult'
+components:
+  schemas:
+    Balance:
+      type: object
+      properties:
+        amount:
+          type: integer
+          format: int64
+          description: 余额
+        amountValid:
+          type: integer
+          format: int64
+          description: 可用余额=余额+信用额度-预授权额度
+        overdraw:
+          type: integer
+          format: int32
+          description: 信用额度
+        amountLocked:
+          type: integer
+          format: int32
+          description: 预授权额度
+    Record:
+      type: object
+      properties:
+        amount:
+          type: integer
+          format: int64
+          description: 交易额度
+        balance:
+          type: integer
+          format: int64
+          description: 交易后余额
+        crtime:
+          type: string
+          format: date-time
+          description: 交易时间
+        memo:
+          type: string
+          description: 备注信息
+        orderId:
+          type: string
+          description: 关联订单Id
+    Records:
+      type: object
+      properties:
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/Record'
+        page:
+          type: integer
+          format: int32
+          description: 当前页
+        total:
+          type: integer
+          format: int32
+          description: 总行数
+        pages:
+          type: integer
+          format: int32
+          description: 总页数
+      description: ok
+    TransferInfo:
+      type: object
+      properties:
+        amount:
+          type: integer
+          format: int64
+          description: 交易额度
+        memo:
+          type: string
+          description: 备注信息
+        orderId:
+          type: string
+          description: 关联订单Id
+    TransferResult:
+      type: object
+      properties:
+        amount:
+          type: integer
+          format: int64
+          description: 交易额度
+        memo:
+          type: string
+          description: 备注信息
+        orderId:
+          type: string
+          description: 关联订单Id
