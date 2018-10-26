@@ -3,7 +3,7 @@ let config = {
   development: {
     port: 3000,
     lng: 'zh_CN',
-    gateway: 'http://gateway.app',
+    gateway: 'http://gateway.test.jamma.cn',
     ctCode: 'cny',
     modules: {
       '': {
