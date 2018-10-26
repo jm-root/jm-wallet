@@ -22,6 +22,11 @@
   },
   "homepage": "https://github.com/jm-root/jm-wallet",
   "dependencies": {
-    "jm-server": "^1.0.9"
+    "config": "^2.0.1",
+    "jm-ms-wrapper": "^1.0.1",
+    "jm-server": "^2.0.7"
+  },
+  "devDependencies": {
+    "standard": "^12.0.1"
   }
 }
