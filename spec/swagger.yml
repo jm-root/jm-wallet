@@ -7,7 +7,7 @@ servers:
 info:
   version: "1.0.0"
   title: jm-wallet-api
-  description: 钱包API
+  description: 钱包API, id==='me', 时取headers.acl_user作为用户id
 paths:
   '/{id}':
     get:
