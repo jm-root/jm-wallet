@@ -1,8 +1,9 @@
 openapi: 3.0.0
 # Added by API Auto Mocking Plugin
 servers:
-  - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/jm-root/jm-wallet/1.0.0
+  - url: 'http://localhost:3000'
+  - url: 'https://gateway.l.jamma.cn'
+  - url: 'https://api.jamma.cn'
 info:
   version: "1.0.0"
   title: jm-wallet-api

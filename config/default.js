@@ -1,8 +1,9 @@
 module.exports = {
   ct_code: 'cny',
+  service_name: 'wallet',
   modules: {
     '': {
-      module: process.cwd() + '/lib'
+      module: process.cwd()
     }
   }
 }
